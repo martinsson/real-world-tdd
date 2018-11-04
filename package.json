@@ -1,0 +1,15 @@
+{
+  "name": "real-world-tdd",
+  "version": "1.0.0",
+  "description": "proof of concept using tdd for code with real dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4"
+  }
+}
