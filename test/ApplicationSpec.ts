@@ -1,31 +1,25 @@
-import * as r from 'amqplib';
-import request = require('supertest-as-promised');
-import express = require('express');
 import { assert, expect } from 'chai';
+import express = require('express');
+import request = require('supertest-as-promised');
 
 describe('Application', () => {
     describe('GET /job-list', () => {
-        it('lists all jobs regarding the given context, one entry per job', async () => {
-            // given
-            // single job, single event of type waiting
+        it('returns all jobs corresponding to the given id, one entry per job', async () => {
 
             let app = express()
-            let connection = await r.connect('localhost')
-            let channel = await connection.createChannel()
-            await channel.assertQueue('events')
-            let eventAsBuffer = Buffer.from(JSON.stringify({contextId: 123, type: 'waiting'}))
-            channel.sendToQueue('events', eventAsBuffer)
+            app.get('/job-list/:contextId', (req, res) => {
+                res.send([])
+            })
 
-            // when
-            // we ask for the job-list
-            var contextId = 'someId'
-            const result = await request(app).get('localhost/job-list/' + contextId)
+            let contextId = 'someId'
+            await request(app).get('/job-list/' + contextId)
+                .expect(200)
+                .expect(response => {
+                    expect(response.body).eql([])
+                })
 
-            // then
-            // it should contain one job, in wating status
-            expect(result).lengthOf(1)
+
         });
-
 
     });
 });
