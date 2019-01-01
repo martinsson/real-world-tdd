@@ -44,7 +44,7 @@ describe('Application', () => {
 
             });
 
-            it.skip('returns only one entry per job-id', async () => {
+            it('returns only one entry per job-id', async () => {
                 await persistence.deleteAllEvents()
                 let app = createRestApp(persistence);
 
