@@ -1,19 +1,17 @@
 import {expect} from 'chai';
-import {EventPersistence} from "../src/EventPersistence"
-import {createRestApp} from "../src/restApp"
+import {createApplication} from "../src/restApp"
 import request = require('supertest-as-promised')
 
 
 describe('Application', () => {
     describe('GET /job-list', () => {
 
-
-        let persistence = new EventPersistence('mongodb://localhost')
+        let mongoHost = 'mongodb://localhost'
+        let {persistence, app} = createApplication(mongoHost)
 
         // several events for one job => single entry
         describe('returns all jobs corresponding to the given id, one entry per job', () => {
             it('no entries', async () => {
-                let app = createRestApp(persistence)
                 await persistence.deleteAllEvents()
 
                 let contextId = 'someId'
@@ -26,7 +24,6 @@ describe('Application', () => {
 
             // several entries
             it('several entries', async () => {
-                let app = createRestApp(persistence);
 
                 await persistence.deleteAllEvents()
                 await persistence.addEvent({type: 'start', data: {id: '1'}})
@@ -46,7 +43,6 @@ describe('Application', () => {
 
             it('returns only one entry per job-id', async () => {
                 await persistence.deleteAllEvents()
-                let app = createRestApp(persistence);
 
                 await persistence.addEvent({type: 'start', data: {id: '1'}})
                 await persistence.addEvent({type: 'paused', data: {id: '1'}})
