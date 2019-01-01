@@ -1,9 +1,9 @@
 import {expect} from 'chai';
-import {MongoClient} from 'mongodb'
+import {EventPersistence} from "../src/EventPersistence"
 import express = require('express')
 import request = require('supertest-as-promised')
 
-function createApp() {
+function createApp(persistence: EventPersistence) {
     let app = express()
     app.get('/job-list/:contextId', async (req, res) => {
         let jobList = await persistence.getEvents()
@@ -12,48 +12,17 @@ function createApp() {
     return app
 }
 
-class EventPersistence {
-    private readonly mongoUrl: string
-
-    constructor(mongoUrl: string) {
-        this.mongoUrl = mongoUrl
-    }
-
-    async addEvent(event: any) {
-        let collection = await this.getCollection()
-        await collection.insertOne(event)
-    }
-
-    async getEvents() {
-        let collection = await this.getCollection()
-        return collection.find().toArray()
-
-    }
-
-    async deleteAllEvents() {
-        let collection = await this.getCollection()
-        return collection.deleteMany({})
-    }
-
-    private async getCollection() {
-        let client = await MongoClient.connect(this.mongoUrl)
-        return client.db('real-world-tdd').collection('rabbitEvents')
-    }
-
-}
-
 let persistence = new EventPersistence('mongodb://localhost')
 
 
 describe('Application', () => {
     describe('GET /job-list', () => {
 
-
         // several events for one job => single entry
 
         describe('returns all jobs corresponding to the given id, one entry per job', () => {
             it('no entries', async () => {
-                let app = createApp()
+                let app = createApp(persistence)
                 await persistence.deleteAllEvents()
 
                 let contextId = 'someId'
@@ -66,7 +35,7 @@ describe('Application', () => {
 
             // several entries
             it('several entries', async () => {
-                let app = createApp();
+                let app = createApp(persistence);
 
                 await persistence.deleteAllEvents()
                 await persistence.addEvent({type: 'start', data: {id: '1'}})
