@@ -1,4 +1,5 @@
 import {MongoClient} from "mongodb"
+import {ProgressEvent} from "./ProgressEvent"
 
 export class EventPersistence {
     private readonly mongoUrl: string
@@ -9,12 +10,17 @@ export class EventPersistence {
 
     async addEvent(event: any) {
         let collection = await this.getCollection()
-        await collection.insertOne(event)
+        let eventDocument: ProgressEvent = {jobId: event.data.id, progress: 'started'}
+        await collection.insertOne(eventDocument)
     }
 
-    async getEvents() {
+    async getEvents(): Promise<ProgressEvent[]> {
         let collection = await this.getCollection()
-        return collection.find().toArray()
+        let events = await collection.find().toArray()
+        events.forEach(e => {
+            delete e._id
+        })
+        return events
 
     }
 
