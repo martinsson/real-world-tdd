@@ -1,4 +1,4 @@
-import {createEventsApp} from "./eventsApp"
+import {createEventsApp} from "./FootBallExternalService"
 
 const request = require('supertest-as-promised')
 
