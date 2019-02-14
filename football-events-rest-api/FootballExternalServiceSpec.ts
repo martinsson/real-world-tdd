@@ -4,7 +4,8 @@ const request = require('supertest-as-promised')
 
 
 describe('FootballExternalService', () => {
-    it('sends some football events over http', async () => {
+    it('sends some football events over http', async function () {
+        this.timeout(6000)
         const app = createEventsApp()
 
 
