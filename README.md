@@ -1,6 +1,7 @@
 # Get started
 
      npm install
+     npm run compile
      npm run start-events-api
      
  You now have a webserver running you can get todays 
