@@ -21,3 +21,11 @@ JSON of the form
     [
       { "home": "Barcelona", "visitor": "Madrid", "score": [0, 1], "state": "in progress" }
     ]
+
+
+## TODOs
+* make jest work also
+* publish docker
+* write clear instructions
+* make sure there is some coordination between external ws so that they can't be
+  that easily mocked out
