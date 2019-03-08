@@ -11,7 +11,7 @@
  
  home team | visitor team | state | score
  --- | --- | --- | ---  
- Barcelona | Madrid | playing | 0 -1  
+ Barcelona | Madrid | in progress | 0 -1  
  Arsenal | Paris | finished | 4 - 3      
 
 
