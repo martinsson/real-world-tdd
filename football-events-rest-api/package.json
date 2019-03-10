@@ -1,0 +1,25 @@
+{
+  "name": "football-events-api",
+  "version": "1.0.0",
+  "description": "the football events api used in the kata real-world tdd",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --require ts-node/register --recursive \"src/**/*.spec.ts\"",
+    "compile": "tsc",
+    "start": "npm run compile && node"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/express": "^4.16.0",
+    "@types/mocha": "^5.2.5",
+    "@types/supertest-as-promised": "^2.0.36",
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "supertest-as-promised": "^4.0.2",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.2.4"
+  }
+}

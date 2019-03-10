@@ -10,7 +10,7 @@
     "start-events-api": "node football-events-rest-api/index.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/amqplib": "^0.5.9",
     "@types/chai": "^4.1.7",
