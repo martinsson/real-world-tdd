@@ -1,11 +1,11 @@
-const request = require('supertest-as-promised')
-const express = require('express')
-const got = require('got')
+import express from "express"
 import {assert, expect} from 'chai';
+import request from "supertest-as-promised"
+import got from "got"
 
 describe('LeaderBoard', () => {
 
-    it('should display a  leaderboard with the state of all games', async () => {
+    it('should display a  leaderboard with  the state of all games', async () => {
         const app = express() // this is the start of the actual production code
         // You'll have to change this route and do something sensible in order
         // for the test to pass. Eventually you'll have to move this into "Production" code
@@ -13,13 +13,12 @@ describe('LeaderBoard', () => {
             res.send('bar')
         })
 
-        let response = await request(app)
-            .get('/leaderboard')
-            .expect(200)
+        let {status, body} = await request(app).get('/leaderboard')
 
-        expect(1).equal(2) // assert something on the response
+        expect(status).eq(200)
+        // then assert something on the response body
 
-    });
+    }).timeout(6000);
 
 
 });
