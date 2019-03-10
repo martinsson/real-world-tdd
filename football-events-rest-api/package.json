@@ -4,7 +4,7 @@
   "description": "the football events api used in the kata real-world tdd",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha --require ts-node/register --recursive \"src/**/*.spec.ts\"",
+    "test": "node_modules/.bin/mocha --require ts-node/register --recursive \"**/*.spec.ts\"",
     "compile": "tsc",
     "start": "tsc && node ."
   },
