@@ -1,13 +1,13 @@
 
 const express = require('express')
 
-let events = [
+type GameEvent = { type: string, gameId: string, team?: string }
+
+let events: GameEvent[] = [
     {type: 'game-start', gameId: 'lyon-marseille'},
-    {type: 'goal', gameId: 'lyon-marseille', team: 'lyon'},
-    {type: 'goal', gameId: 'lyon-marseille', team: 'marseille'},
-    {type: 'game-end', gameId: 'lyon-marseille'},
 
     {type: 'game-start', gameId: 'paris-monaco'},
+    {type: 'game-end', gameId: 'paris-monaco'},
 ]
 async function getEventsSlowly() {
     await new Promise((resolve) => {
@@ -28,7 +28,11 @@ function createRestApp() {
     const app = express();
     app.get('/events', async (req, res, next) => {
         let results = await getEventsSlowly()
-        res.send(results)
+        if (Math.random() < 0.1) {
+            res.send(JSON.stringify(results).substr(0, 20))
+        } else {
+            res.send(results)
+        }
     })
     return app
 }
