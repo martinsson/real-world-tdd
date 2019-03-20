@@ -1,5 +1,7 @@
 # Football leaderboard kata 
 This kata is about applying TDD in the presence of *untestable* dependencies.
+In the way that it's done in Kent Beck's original style of TDD, it seems to be in 
+contrast with the London school but the two styles can actually be used in combination.
 Your task is to write a rest-api that uses another lower level rest-api. **Do not 
 mock** this external API **until you experience some difficulty** with them 
 (too slow, or flaky, ...). You definately want to *explore* the other api's behaviour 
