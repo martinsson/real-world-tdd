@@ -18,6 +18,7 @@
     "@types/supertest-as-promised": "^2.0.36",
     "chai": "^4.2.0",
     "express": "^4.16.4",
+    "football-events-api": "^1.0.0",
     "got": "^9.6.0",
     "jest": "^24.1.0",
     "mocha": "^5.2.0",

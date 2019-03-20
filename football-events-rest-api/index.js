@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { createEventsApp } = require('./FootBallExternalService');
 createEventsApp().listen(5010)
 

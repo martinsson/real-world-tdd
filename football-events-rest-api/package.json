@@ -1,6 +1,6 @@
 {
   "name": "football-events-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "the football events api used in the kata real-world tdd, https://github.com/martinsson/real-world-tdd",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
     "mocha": "^5.2.0",
     "supertest": "^4.0.0",
     "supertest-as-promised": "^4.0.2"
+  },
+  "bin": {
+    "start-footballs-events-api": "./index.js"
   }
 }
