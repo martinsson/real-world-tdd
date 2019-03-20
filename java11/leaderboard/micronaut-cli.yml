@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: leaderboard
+---
+testFramework: junit
+sourceLanguage: java
