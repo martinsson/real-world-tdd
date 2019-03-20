@@ -7,7 +7,7 @@
     "test": "node_modules/.bin/mocha --require ts-node/register --recursive \"src/**/*.spec.ts\"",
     "jest": "jest",
     "compile": "tsc",
-    "start-events-api": "node football-events-rest-api/index.js"
+    "start-events-api": "start-footballs-events-api"
   },
   "author": "",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "@types/supertest-as-promised": "^2.0.36",
     "chai": "^4.2.0",
     "express": "^4.16.4",
-    "football-events-api": "^1.0.0",
+    "football-events-api": "^1.0.2",
     "got": "^9.6.0",
     "jest": "^24.1.0",
     "mocha": "^5.2.0",
