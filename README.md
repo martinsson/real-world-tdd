@@ -17,13 +17,17 @@ so that I can run them without polluting the unit tests with "random" failures
 but still get the valuable information that an external api is down/broken. 
   
 ## The external api
-This is code out of your control. You can get it by installing 
-a docker image or access the online version
-worst case it is provided as a lib that you can start yourself  
-
-    cd football-events-rest-api 
+This is code out of your control.  
+It is provided as a lib that you can start.   
+ 
+    cd typescript
     npm install
-    npm start
+    npm run start-events-api
+    
+or you can install it globally
+
+    npm install -g football-events-api
+    start-footballs-events-api
      
 You now have a webserver running you can get todays 
 events on http://localhost:5010/events
