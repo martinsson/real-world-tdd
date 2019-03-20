@@ -1,7 +1,7 @@
 # Football leaderboard kata 
 This kata is about applying TDD in the presence of *untestable* dependencies.
-Your task is to write a rest-api that uses another lower level rest-api. Do not 
-mock this external API until you experience some difficulty with them 
+Your task is to write a rest-api that uses another lower level rest-api. **Do not 
+mock** this external API **until you experience some difficulty** with them 
 (too slow, or flaky, ...). You definately want to *explore* the other api's behaviour 
 with unit tests. Then once you have a few tests, you can refactor the tests to
 something more in line with the testing pyramid. 
@@ -48,6 +48,14 @@ JSON of the form
         "score": [0, 1], 
         "state": "in progress" }
     ]
+
+## Questions for the retrospective
+* What did the tests on with the real dependency teach you?
+* What types of tests did you end up with? System-tests, unit tests, focused integration tests? All three?
+* What problems were avoided, what was encountered?
+* Could this be useful in your work? Can you share your thoughts? 
+* If this is the way you already work. What experiences can you share?
+* What do you do with focused integration tests in the CI?
 
 
 ## TODOs
