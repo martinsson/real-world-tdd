@@ -20,8 +20,9 @@ but still get the valuable information that an external api is down/broken.
   
 ## The external api
 This is code out of your control.  
-It is provided as a lib that you can start.   
+It is provided as a lib and a docker container that you can start.   
  
+### as a lib
     cd typescript
     npm install
     npm run start-events-api
@@ -30,6 +31,11 @@ or you can install it globally
 
     npm install -g football-events-api
     start-footballs-events-api
+
+### using docker docker
+
+    docker run --name footballs-events-api -p 5010:5010 footballs-events-api
+    
      
 You now have a webserver running you can get todays 
 events on http://localhost:5010/events
