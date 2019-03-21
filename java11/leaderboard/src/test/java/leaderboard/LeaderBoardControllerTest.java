@@ -13,10 +13,8 @@ public class LeaderBoardControllerTest {
 
     @Test
     public void firstTest() {
-        try(EmbeddedServer server = ApplicationContext.run(EmbeddedServer.class)) {
-            try(RxHttpClient client = server.getApplicationContext().createBean(RxHttpClient.class, server.getURL())) {
-                assertEquals(HttpStatus.OK, client.toBlocking().exchange("/leaderboard").status());
-            }
-        }
+        EmbeddedServer server = ApplicationContext.run(EmbeddedServer.class);
+        RxHttpClient client = server.getApplicationContext().createBean(RxHttpClient.class, server.getURL());
+        assertEquals(HttpStatus.OK, client.toBlocking().exchange("/leaderboard").status());
     }
 }
