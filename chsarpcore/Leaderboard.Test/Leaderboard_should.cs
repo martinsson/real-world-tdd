@@ -27,7 +27,7 @@ namespace Leaderboard.Test
                     {
                         app.UseRouter(router =>
                         {
-                            router.MapGet("/bar", async (request, response, routeData) =>
+                            router.MapGet("/foo", async (request, response, routeData) =>
                             {
                                 await response.WriteAsync("bar");
                             });
